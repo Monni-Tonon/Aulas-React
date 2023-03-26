@@ -1,0 +1,17 @@
+.paragrafo1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 12px;
+    color: blueviolet;
+}
+
+body {
+    background-color: #ff7f50a6;
+    font-family: monospace;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    border-radius: 8px;
+    display: inline;
+}

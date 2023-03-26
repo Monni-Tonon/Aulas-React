@@ -1,0 +1,21 @@
+.task {
+    width: 200px;
+    margin: 20px;
+    border: 2px solid green;
+    padding: 5px 10px;
+    background-color: rgb(146, 219, 197);
+}
+
+.task .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task .status {
+    color: blue;
+}
+
+.task .deadline {
+    color: red;
+}

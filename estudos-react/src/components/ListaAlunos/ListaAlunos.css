@@ -1,0 +1,53 @@
+.card-aluno {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 7px;
+    padding: 8px;
+    background-color: white;
+    flex-direction: column;
+}
+
+.card-aprovado {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #008000;
+    border-radius: 7px;
+    padding: 8px;
+    background-color: white;
+    flex-direction: column;
+}
+
+.card-reprovado {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(250, 3, 3);
+    border-radius: 7px;
+    padding: 8px;
+    background-color: white;
+    flex-direction: column;
+}
+
+
+/* ------------------------------------ */
+
+/* CODIGO CSS ALUNOS DO PROFESSOR */
+/* .aluno-card {
+    border-radius: 8px;
+    margin: 8px 0;
+    padding: 8px;
+}
+
+.aprovado {
+    border: 4px solid green;
+}
+
+.reprovado {
+    border: 4px solid red;
+} */

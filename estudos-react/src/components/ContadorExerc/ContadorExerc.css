@@ -1,0 +1,27 @@
+/* .contador {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contador div {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+} */
+
+button {
+    width: 50px;
+    margin: 2px;
+    height: 30px;
+    background-color: rgb(153, 153, 153);
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px rgb(152, 152, 152);
+    display:inline;
+    justify-content: center;
+}
+
+h1 {
+    background-color: rgb(201, 253, 243);
+    border: 1px solid black
+}

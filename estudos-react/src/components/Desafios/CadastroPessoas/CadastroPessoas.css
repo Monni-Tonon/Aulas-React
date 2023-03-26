@@ -1,0 +1,81 @@
+* {
+    margin: 10px;
+}
+h2 {
+    margin-top: 20px;
+}
+
+h3 {
+padding-bottom: 20px;
+}
+
+button {
+background-color: #4caf50;
+border: none;
+color: white;
+padding: 5px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 20px;
+}
+
+/* button {
+    background-color: chocolate;
+    text-align: center;
+    text-emphasis: bold;
+}
+
+table {
+    width: 100%;
+    border: 2px solid black;
+    border-top: none;
+}
+
+table thead {
+    font-size: 16px;
+    justify-content: space-evenly ;
+}
+
+tr {
+    border: 2px solid black;
+} */
+
+/* ---------------------- css do prof ----------------------------*/
+.tabela-pessoas {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  
+  .tabela-pessoas td,
+  .tabela-pessoas th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  
+  .cadastro-pessoas input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  
+  tbody tr td button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 0px;
+  }
+  
