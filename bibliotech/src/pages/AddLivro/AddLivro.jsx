@@ -1,9 +1,19 @@
+import { Button, Container, Form } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { addLivros } from "../../firebase/livros";
+
 export function AddLivro(){
 
     const {register, handleSubmit, formState: {errors}} = useForm();
+    const navigate = useNavigate();
 
     function onSubmit(data) {
-        console.log(data)
+        addLivros(data).then(() => {
+            toast.success("Livro Cadastrado com sucesso!", {duration: 3000, postition: "top-center"})
+            navigate("/livros");
+        })
         // salvar no banco de dados
     }
 
@@ -47,7 +57,7 @@ export function AddLivro(){
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Imagem da capa</Form.Label>
-                    <Form.Control type="url" className={errors.urlcapa ? "is-invalid" : ""} {...register("urlCapa", {required:"O endereço da capa é obrigatória"})} />
+                    <Form.Control type="url" className={errors.urlcapa ? "is-invalid" : ""} {...register("urlcapa", {required:"O endereço da capa é obrigatória"})} />
                     <Form.Text className="text-danger">
                         {errors.urlcapa?.message}
                     </Form.Text>

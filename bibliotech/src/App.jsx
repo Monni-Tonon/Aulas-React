@@ -11,6 +11,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/config";
 import { AuthContext } from "./components/contexts/AuthContext";
 import { AddLivro } from "./pages/AddLivro/AddLivro";
+import { Livros } from "./pages/Livros/Livros";
 
 export function App() {
 
@@ -35,10 +36,13 @@ export function App() {
         <AuthContext.Provider value={usuarioLogado}>
         <BrowserRouter>
             <Routes>
+                {/* inico da rota segura */}
                 <Route path="/" element={ <Root /> }>
                     <Route path="/" element={<Home />} />
+                    <Route path="/livros" element={<Livros />} />
                     <Route path="/livros/adicionar" element={<AddLivro />} />
                 </Route>
+                {/* fim da rota segura */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/cadastro" element={<Cadastro />} />
             </Routes>
