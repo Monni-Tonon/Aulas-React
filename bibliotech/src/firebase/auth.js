@@ -1,5 +1,6 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { auth } from "./config";
+
 
 // funcao assíncrona = que o resultado nao é obtido de imediato. 
 // Haverá espera
@@ -26,4 +27,9 @@ export async function loginEmailSenha(email, senha) {
     const resultado = await signInWithEmailAndPassword(auth, email, senha);
 
         return resultado.user;
+}
+
+export async function logout() {
+    // deslogar o usuario atual do firebase
+    await signOut(auth);
 }
