@@ -34,16 +34,12 @@ export function CalcImc() {
 function limpar() {
     setPeso("");
     setAltura("");
-    setImc();
+    setImc("");
 }
-    // function gender() {
 
-    // if(gender === "female") {
-    // <img src href= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr3uACZNVuXFKF391H_zML4R96AgR2WgRx-xmQA3kGMEM2rshcRDLe0vHhe1rnMuMQm2o&usqp=CAU" ></img>
-    // } else if(gender === "male") {
-    //     <img src href= "https://guiatech.net/wp-content/uploads/2015/03/imc-classificacao.jpg" ></img>
+// function gender() {
 
-    // };}
+// }
 
 
     return (
@@ -60,8 +56,6 @@ function limpar() {
                 <select>
                 <option value="female" onClick={gender}>feminino</option>
                 <option value="male" onClick={gender}>masculino</option>
-                {/* <img src={generoImc[gender.index].img} /> */}
-                
                 </select>
                 <button onClick={calculaImc}>Calcular</button>
                 <button onClick={limpar}>Limpar </button>

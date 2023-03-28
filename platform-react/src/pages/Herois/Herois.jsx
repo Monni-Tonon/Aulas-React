@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Alert } from "react-bootstrap";
 import { useForm } from "react-hook-form"
-import "./Herois.css"
+
+import "./Herois.css";
 //handlesubmit = é responsavel por intermediar a captura dos dados do formulário e agrupar-las em um objeto "data" e passar para a função de tratamento (o submeter). funcao q retorna funcao. propriedade do react-hook-form
 // register = cria o estado pro campo e cria os eventos para o campo e retorna o objeto com esses eventos
 // usa o spread (...) para ele soltar cada propriedade que ele está retornando do objeto como propriedade e valor lá pro formulário utilizar
@@ -33,6 +34,7 @@ export function Herois() {
 
                 <label htmlFor="nome">Nome</label><br />
                 <input type="text" id="nome" {...register("nome")}/><br />
+                
                 
                 <label htmlFor="poder">Poder</label><br />
                 <input type="text" id="poder" {...register("poder")}/><br />

@@ -1,7 +1,7 @@
 /* Os estilos serão globais */
 
 body {
-    background-color: #ff7f5069;
+    background-color: #f5dfb169;
     font-family: monospace;
     margin: 0;
     box-sizing: border-box;
@@ -20,7 +20,7 @@ img {
 }
 
 .mensagem {
-    /* background-color: whitesmoke; */
+    background-color: whitesmoke; 
     padding: 8px;
     border: 1px solid grey;
     border-radius: 8px;

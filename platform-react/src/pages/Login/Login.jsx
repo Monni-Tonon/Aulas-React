@@ -1,10 +1,11 @@
 /* Crie um novo componente chamado Login. Utilize React Router para especificar uma nova rota que renderize este novo componente. Para este componente crie dois campos de formulário para o e-mail e senha, e um botão de submit. Crie também um botão para possibilitar a autenticação via Google. Utilize React Bootstrap para estruturar está página. A estilização fica a seu critério, seja criativo.
 Inspire-se: https://cssauthor.com/best-free-bootstrap-login-forms */
 
+
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
+ import "./Login.css";
 
 export function Login() {
 
@@ -53,7 +54,7 @@ export function Login() {
 // import React from 'react';
 // import {MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox } from 'mdb-react-ui-kit';
 
-// function Login() {
+// export function Login() {
 
 //   return (
 //     <MDBContainer fluid className="p-3 my-5 h-custom">
@@ -136,5 +137,3 @@ export function Login() {
 //     </MDBContainer>
 //   );
 // }
-
-// export default Login;

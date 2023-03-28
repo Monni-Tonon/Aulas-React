@@ -44,14 +44,14 @@ export function App() {
     {/* <Sorteio /> */}
     {/* <Abas /> */}
     {/* <Quiz /> */}
-    {/* <CalcImc /> */}
+    <CalcImc />
     {/* <Carousel /> */}
     {/* <CadastroPessoas /> */}
     {/* <ConvertTemp /> */}
     {/* <ConvertDistancia /> */}
     {/* <Dicionario /> */}
     {/* <CalculaImc /> */}
-    <Calculadora />
+    {/* <Calculadora /> */}
     
     
     </>
