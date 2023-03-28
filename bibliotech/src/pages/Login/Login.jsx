@@ -1,16 +1,19 @@
 // tela sem a NavBar
+import { useContext } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import googleIcon from "../../assets/icons/google-white.svg";
 import loginImg from "../../assets/images/login.png";
+import { AuthContext } from "../../components/contexts/AuthContext";
 import { loginEmailSenha, loginGoogle } from "../../firebase/auth";
 
 export function Login() {
     const { register, handleSubmit,formState: { errors }} = useForm();
 
     const navigate = useNavigate();
+
 
     function onSubmit(data) {
         const { email, senha } = data;
@@ -32,6 +35,13 @@ export function Login() {
         .catch((erro) => {
             toast.error(`Erro inesperado. Cód: ${erro.code}`, {position:"top-center", duration: 3000,});
         });
+    }
+
+    const usuarioLogado = useContext(AuthContext);
+
+    // se tiver dados no obj, está logado, se nao, volta pra pag de login
+    if(usuarioLogado !== null) {
+        return <Navigate to="/" />;
     }
 
     return (
