@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/config";
 import { AuthContext } from "./components/contexts/AuthContext";
+import { AddLivro } from "./pages/AddLivro/AddLivro";
 
 export function App() {
 
@@ -35,7 +36,8 @@ export function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={ <Root /> }>
-                    <Route path="/" element={<Home />}></Route>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/livros/adicionar" element={<AddLivro />} />
                 </Route>
                 <Route path="/login" element={<Login />} />
                 <Route path="/cadastro" element={<Cadastro />} />
