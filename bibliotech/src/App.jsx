@@ -12,6 +12,10 @@ import { auth } from "./firebase/config";
 import { AuthContext } from "./components/contexts/AuthContext";
 import { AddLivro } from "./pages/AddLivro/AddLivro";
 import { Livros } from "./pages/Livros/Livros";
+import { EditLivro } from "./pages/EditLivro/EditLivro";
+import { AddEmprestimo } from "./pages/AddEmprestimo/AddEmprestimo";
+import { Emprestimos } from "./pages/Emprestimos/Emprestimos";
+import { EditEmprestimo } from "./pages/EditEmprestimo/EditEmprestimo";
 
 export function App() {
 
@@ -35,14 +39,20 @@ export function App() {
     {/* todas as rotas passarao pelo AuthContext pois as pags precisam saber se o user ta logado ou nao */}
         <AuthContext.Provider value={usuarioLogado}>
         <BrowserRouter>
+        
             <Routes>
                 {/* inico da rota segura */}
                 <Route path="/" element={ <Root /> }>
                     <Route path="/" element={<Home />} />
                     <Route path="/livros" element={<Livros />} />
                     <Route path="/livros/adicionar" element={<AddLivro />} />
+                    <Route path="/livros/editar/:id" element={<EditLivro />} />
+                    <Route path="/emprestimos" element={<Emprestimos />} />
+                    <Route path="/emprestimos/adicionar" element={<AddEmprestimo />} />
+                    <Route path="/emprestimos/editarStatus/:id" element={<EditEmprestimo />} />
                 </Route>
                 {/* fim da rota segura */}
+
                 <Route path="/login" element={<Login />} />
                 <Route path="/cadastro" element={<Cadastro />} />
             </Routes>

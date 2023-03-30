@@ -29,7 +29,7 @@ export function Login() {
 
     function onLoginGoogle() {
         loginGoogle().then((user) => {
-            toast.success(`Olá de novo, ${user.displayName}`);
+            toast.success(`Olá de novo, ${user.displayName}`, {position:"top-center", duration: 3000});
             navigate=("/");
         })
         .catch((erro) => {
@@ -55,11 +55,7 @@ export function Login() {
                 Não tem conta? <Link to="/cadastro">Cadastre-se</Link>
             </p>
             <hr />
-            <Button
-                className="mb-3"
-                variant="primary"
-                onClick={onLoginGoogle}
-            >
+            <Button className="mb-3" variant="primary" onClick={onLoginGoogle} >
                 <img src={googleIcon} width="32" alt="Google icon" /> Entrar com o
                 Google
             </Button>

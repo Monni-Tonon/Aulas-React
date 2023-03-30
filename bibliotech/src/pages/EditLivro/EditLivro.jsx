@@ -1,26 +1,37 @@
+import { useEffect } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
-import { addLivros } from "../../firebase/livros";
+import { useNavigate, useParams } from "react-router-dom";
+import { getLivro, updateLivro } from "../../firebase/livros";
 
-export function AddLivro(){
+export function EditLivro(){
 
-    const {register, handleSubmit, formState: {errors}} = useForm();
+    // useParams = captura o id do livro. declarado com desustrutracao
+    const {id} = useParams();
+
+    const {register, handleSubmit, formState: {errors}, reset} = useForm();
     const navigate = useNavigate();
 
-    function onSubmit(data) {
-        addLivros(data).then(() => {
-            toast.success("Livro Cadastrado com sucesso!", {duration: 3000, postition: "top-center"})
+    // salvar no banco de dados os dados atualizados
+    function onSubmit(dadoAtualizado) {
+        updateLivro(id, dadoAtualizado).then(() => {
+            toast.success("Livro editado com sucesso!", {duration: 3000, postition: "top-center"})
             navigate("/livros");
         })
-        // salvar no banco de dados
     }
 
+    useEffect(() => {
+        getLivro(id).then(livro => {
+            //o reset ira retornar os dados do livro no campo para edicao.
+            reset(livro);
+        })
+    }, [id, reset]);
+
     return (
-        <div className="adicionar-livro">
+        <div className="editar-livro">
         <Container>
-            <h1>Adicionar livro</h1>
+            <h1>Editar livro</h1>
             <hr />
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -63,7 +74,7 @@ export function AddLivro(){
                     </Form.Text>
                 </Form.Group>
 
-                <Button type="submit" variant="success">Cadastrar</Button>
+                <Button type="submit" variant="success">Concluído</Button>
             </Form>
         </Container>
     </div>
