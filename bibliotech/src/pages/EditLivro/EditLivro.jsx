@@ -15,6 +15,7 @@ export function EditLivro(){
 
     // salvar no banco de dados os dados atualizados
     function onSubmit(dadoAtualizado) {
+    
         updateLivro(id, dadoAtualizado).then(() => {
             toast.success("Livro editado com sucesso!", {duration: 3000, postition: "top-center"})
             navigate("/livros");
@@ -58,7 +59,7 @@ export function EditLivro(){
                     </Form.Text>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3" >
                     <Form.Label>ISBN</Form.Label>
                     <Form.Control type="text" className={errors.isbn ? "is-invalid" : ""} {...register("isbn", {required:"ISBN deve ser obrigatório.", minLength: {value: 14, message: "O mínimo é 14 caracteres"}})} />
                     <Form.Text className="text-danger">
@@ -66,12 +67,9 @@ export function EditLivro(){
                     </Form.Text>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3">
                     <Form.Label>Imagem da capa</Form.Label>
-                    <Form.Control type="url" className={errors.urlcapa ? "is-invalid" : ""} {...register("urlcapa", {required:"O endereço da capa é obrigatória"})} />
-                    <Form.Text className="text-danger">
-                        {errors.urlcapa?.message}
-                    </Form.Text>
+                    <Form.Control type="file"  {...register("urlcapa",)} />
                 </Form.Group>
 
                 <Button type="submit" variant="success">Concluído</Button>

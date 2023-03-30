@@ -2,7 +2,7 @@ import { Button, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { addLivros } from "../../firebase/livros";
+import { addLivros, uploadCapaLivro } from "../../firebase/livros";
 
 export function AddLivro(){
 
@@ -10,11 +10,27 @@ export function AddLivro(){
     const navigate = useNavigate();
 
     function onSubmit(data) {
-        addLivros(data).then(() => {
-            toast.success("Livro Cadastrado com sucesso!", {duration: 3000, postition: "top-center"})
-            navigate("/livros");
-        })
-        // salvar no banco de dados
+        // esse "imagem" vem do nome do campo la embaixo
+        const imagem = data.imagem[0];
+        if(imagem) {   // se imagem existe, faça upload, entao trata a mensagem na tela. (funçã ode upload no arq livros.js)
+            const toastId = toast.loading("Uploading da imagem...", {position: "bottom-right"});
+            //ao finalizar o upload, o dismiss para o toast de mensagem de upload e tira ele da tela.
+            uploadCapaLivro(imagem).then(url => {
+                toast.dismiss(toastId);
+                data.urlcapa = url;
+                delete data.imagem;
+                addLivros(data).then(() => {
+                    toast.success("Livro Cadastrado com sucesso!", {duration: 3000, postition: "top-center"})
+                    navigate("/livros");
+                    // salvar no banco de dados
+                })
+            })
+        } else { 
+                delete data.imagem;
+                addLivros(data).then(() => {
+                toast.success("Livro Cadastrado com sucesso!", {duration: 3000, postition: "top-center"})
+                navigate("/livros");
+        })}
     }
 
     return (
@@ -55,12 +71,9 @@ export function AddLivro(){
                     </Form.Text>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3">
                     <Form.Label>Imagem da capa</Form.Label>
-                    <Form.Control type="url" className={errors.urlcapa ? "is-invalid" : ""} {...register("urlcapa", {required:"O endereço da capa é obrigatória"})} />
-                    <Form.Text className="text-danger">
-                        {errors.urlcapa?.message}
-                    </Form.Text>
+                    <Form.Control type="file" accept=".png, .jpg, .jpeg, .gif" {...register("imagem",)} />
                 </Form.Group>
 
                 <Button type="submit" variant="success">Cadastrar</Button>
